@@ -1,74 +1,205 @@
 import React, { useState } from 'react';
 import Nav from './nav';
 import Header from './Others/Header';
-import contact from '/contact.jpg'
+import contact from '/contact.jpg';
 
-const Contact = () => {
+const HelpSupport = () => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
 
-   let [firstName,setFirstName] = useState("")
-   let [lastName,setLastName] = useState("")
-   let [email,setEmail] = useState("")
-   let [subject,setSubject] = useState("")
-   let [message,setMessage] = useState("")
+    // const submitHandler = (e) => {
+    //     e.preventDefault();
+    //     // Normally, send the data to server here
+    //     alert("Your message has been submitted. We'll get back to you shortly.");
+    //     setFirstName("");
+    //     setLastName("");
+    //     setEmail("");
+    //     setSubject("");
+    //     setMessage("");
+    // };
 
-
-    const submitHandler = (e) => {
-        e.preventDefault()
-        setFirstName("")
-        setLastName("")
-        setEmail("")
-        setMessage("")
-        setSubject("")
-    }
-
-    return(
+    return (
         <div>
-             <Nav />
-            <div className=' w-full min-h-screen relative top-[125px]'>
-               <div className='w-full h-[300px] bg-black bg-opacity-80'>
-                <img src={contact} className='w-full h-full object-cover    ' alt="" />
-                <h1 className='absolute max-[425px]:top-28 max-[425px]:left-20  top-32 left-[550px] text-5xl text-white font-bold'>Contact Us</h1>
-                <h1 className='absolute top-44 left-[600px] max-[425px]:top-40  max-[425px]:left-32 text-2xl  font-medium text-yellow-400'>Get In Touch</h1>
-               </div>
-               <div className='w-full min-h-[100vh] max-[768px]:flex-col flex'>
-                <div className='w-[50%] max-[768px]:w-full h-[100vh] flex justify-center items-center'>
-                    <div className='w-[60%]  h-[80%] py-8 px-5 max-[768px]:w-full  bg-black text-white  rounded-lg'>
-                        <h1 className='text-3xl font-bold mb-12'>Contact Us</h1>
-                        <p className='mb-10'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptatem eaque assumenda cumque delectus possimus dolorem quod quam itaque magnam.</p>
-                        <h2 className='text-lg font-medium mb-7'><i className="ri-map-pin-line "></i> Naya Nagar Mhasla,Raigad Maharastra</h2>
-                        <h2 className='text-lg font-medium mb-7'><i class="ri-mail-line"></i> mubinshaikj666@gmail.com </h2>
-                        <h2 className='text-lg font-medium mb-7'><i class="ri-phone-line"></i> 7775025806</h2>
+            <Nav />
+            <div className='w-full min-h-screen pt-[125px]'>
+                {/* Banner */}
+                <div className='w-full h-[300px] relative'>
+                    <img src={contact} alt="contact" className='w-full h-full object-cover' />
+                    <div className='absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center text-white'>
+                        <h1 className='text-4xl font-bold'>Help & Support</h1>
+                        <p className='text-lg text-yellow-400 mt-2'>We’re here to help you!</p>
                     </div>
                 </div>
-                <div className='w-[50%] max-[768px]:w-full flex justify-center items-center h-[100vh]'>
-                    <form onSubmit={(e)=>{submitHandler(e)}} className='w-[80%] h-[80%] max-[768px]:w-full max-[768px]:h-[95%]  py-8 px-5 bg-transparent border-2 border-black rounded'>
-                    <h1 className='text-3xl font-bold mb-12'>Get In Touch With Us</h1>
-                    <div className='flex items-center gap-3 mb-5'>
-                        <input value={firstName} onChange={(e)=>{setFirstName(e.target.value)}} type="text" placeholder='Enter First Name' className='px-4 py-2 w-[50%] rounded outline-none border-2 border-black' />
-                        <input value={lastName} onChange={(e)=>{setLastName(e.target.value)}} type="text" placeholder='Enter Last Name' className='px-4 py-2 rounded w-[50%] outline-none border-2 border-black' />
+
+                {/* Main Section */}
+                <div className='w-full flex flex-col md:flex-row'>
+                    {/* Contact Information Section */}
+                    <div className='md:w-1/2 w-full p-6 bg-gradient-to-br from-black to-gray-900 text-white flex flex-col justify-center'>
+                        <h2 className='text-3xl font-bold mb-6'>Need Help? Contact Us</h2>
+                        <p className='text-gray-300 mb-6'>
+                            Whether it’s a question about your order, payment, shipping, or anything else — we’re here to help!
+                        </p>
+
+                        {/* Cards */}
+                        <div className='space-y-6'>
+                            {/* Address */}
+                            <div className='flex items-start gap-4'>
+                                <div className='text-yellow-400 text-3xl'>
+                                    <i className="ri-map-pin-line"></i>
+                                </div>
+                                <div>
+                                    <h3 className='text-lg font-semibold'>Our Store Location</h3>
+                                    <p className='text-gray-300'>Naya Nagar, Mhasla, Raigad, Maharashtra 402105</p>
+                                </div>
+                            </div>
+
+                            {/* Email */}
+                            <div className='flex items-start gap-4'>
+                                <div className='text-yellow-400 text-3xl'>
+                                    <i className="ri-mail-line"></i>
+                                </div>
+                                <div>
+                                    <h3 className='text-lg font-semibold'>Email Support</h3>
+                                    <p className='text-gray-300'>mubinshaikj666@gmail.com</p>
+                                    <p className='text-sm text-gray-400'>Replies within 24 hours</p>
+                                </div>
+                            </div>
+
+                            {/* Phone */}
+                            <div className='flex items-start gap-4'>
+                                <div className='text-yellow-400 text-3xl'>
+                                    <i className="ri-phone-line"></i>
+                                </div>
+                                <div>
+                                    <h3 className='text-lg font-semibold'>Call Us</h3>
+                                    <p className='text-gray-300'>+91 77750 25806</p>
+                                    <p className='text-sm text-gray-400'>Available Mon–Sat, 9am to 6pm</p>
+                                </div>
+                            </div>
+
+                            {/* Live Chat (optional future feature) */}
+                            <div className='flex items-start gap-4'>
+                                <div className='text-yellow-400 text-3xl'>
+                                    <i className="ri-chat-3-line"></i>
+                                </div>
+                                <div>
+                                    <h3 className='text-lg font-semibold'>Live Chat</h3>
+                                    <p className='text-gray-300'>Coming Soon – Chat with our team in real-time.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <input type="email" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder='Enter Email' className='px-4 mb-5 py-2 rounded w-[100%] outline-none border-2 border-black' />
-                    <input type="text" value={subject} onChange={(e)=>{setSubject(e.target.value)}}  placeholder='Enter Subject' className='px-4 mb-5 py-2 rounded w-[100%] outline-none border-2 border-black' />
-                    <textarea value={message} onChange={(e)=>{setMessage(e.target.value)}} placeholder='Enter Message'  className='mb-2 w-full h-32 outline-none border-2 border-black px-4 py-2 rounded'></textarea>
-                    <button className='px-3 active:scale-95 font-medium py-2 bg-black rounded text-white'>SUBMIT</button>
 
-                    </form>
+                    {/* Right: Form */}
+                    <div className='md:w-1/2 w-full p-6 bg-white shadow-lg rounded-lg'>
+                        <form  action="https://formspree.io/f/xyzpwloy"
+                            method="POST" className='w-full space-y-5'>
+                            <div className='mb-5'>
+                                <h2 className='text-3xl font-bold text-gray-800 mb-1'>Send Us a Message</h2>
+                                <p className='text-sm text-gray-500'>We typically respond within 24 hours.</p>
+                            </div>
+
+                            {/* Name Fields */}
+                            {/* <div className='flex flex-col md:flex-row gap-4'>
+                                <input
+                                    value={firstName}
+                                    onChange={(e) => setFirstName(e.target.value)}
+                                    type="text"
+                                    placeholder='First Name'
+                                    className='flex-1 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400'
+                                    required
+                                />
+                                <input
+                                    value={lastName}
+                                    onChange={(e) => setLastName(e.target.value)}
+                                    type="text"
+                                    placeholder='Last Name'
+                                    className='flex-1 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400'
+                                    required
+                                />
+                            </div> */}
+
+                            <input
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                type="text"
+                                placeholder='First Name'
+                                className='flex-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400'
+                                required
+                                name='First Name'
+                            />
+                            <input
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
+                                type="text"
+                                placeholder='Last Name'
+                                className='flex-1 w-full px-4 py-2 border border-gray-300  rounded focus:outline-none focus:ring-2 focus:ring-indigo-400'
+                                required
+                                name='Last Name'
+                            />
+
+                            {/* Email */}
+                            <input
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                type="email"
+                                placeholder='Email Address'
+                                className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400'
+                                required
+                                name='Email'
+                            />
+
+                            {/* Subject */}
+                            <input
+                                value={subject}
+                                onChange={(e) => setSubject(e.target.value)}
+                                type="text"
+                                name='Subject'
+                                placeholder='Subject (Optional)'
+                                className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-400'
+                            />
+
+                            {/* Message */}
+                            <textarea
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                                placeholder='Your Message'
+                                className='w-full h-32 px-4 py-2 border border-gray-300 rounded resize-none focus:outline-none focus:ring-2 focus:ring-indigo-400'
+                                required
+                                name='Message'
+                            />
+
+                            {/* Submit */}
+                            <button
+                                type="submit"
+                                className='bg-yellow-400 text-black px-6 py-2 rounded hover:bg-indigo-700 transition-all active:scale-95 shadow-md'
+                            >
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
-               </div>
 
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3791.635474034625!2d73.10730567415962!3d18.13461728085176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be8350063621055%3A0xeb4bf67a6b987efd!2sMhasla%20Raigad!5e0!3m2!1sen!2sin!4v1730828428021!5m2!1sen!2sin" width="600" className='w-full h-[300px]' height="450"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {/* Google Map */}
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3791.635474034625!2d73.10730567415962!3d18.13461728085176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be8350063621055%3A0xeb4bf67a6b987efd!2sMhasla%20Raigad!5e0!3m2!1sen!2sin!4v1730828428021!5m2!1sen!2sin"
+                    className='w-full h-[300px]'
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
 
-               <br /><br />
-               <hr />
-              <div className='max-[425px]:mt-[-150px] max-[768px]:mt-[30px]'>
-              <Header />
-              </div>
-
+                {/* Footer */}
+                <div className='mt-10 max-[425px]:-mt-[110px]'>
+                    <Header />
+                </div>
             </div>
-         
         </div>
-    )
-}
+    );
+};
 
-export default Contact
+export default HelpSupport;
