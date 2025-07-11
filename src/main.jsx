@@ -83,6 +83,9 @@ const routers = createBrowserRouter([
     </ProtectedRoute>
     )
   },
+   {
+    basename: "/KokanBazar" // ✅ REQUIRED for GitHub Pages
+  }
 ])
 
 createRoot(document.getElementById('root')).render(

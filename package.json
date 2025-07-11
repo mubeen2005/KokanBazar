@@ -1,14 +1,19 @@
+
 {
+  "homepage": "https://mubeen2005.github.io/KokanBazar",
   "name": "filter-card",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "postbuild": "copy dist\\index.html dist\\404.html", 
+  "preview": "vite preview",
+  "predeploy": "npm run build && npm run postbuild",
+  "deploy": "gh-pages -d dist"
+},  
+
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "axios": "^1.7.7",
