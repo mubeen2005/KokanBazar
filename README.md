@@ -2,7 +2,7 @@
 
 A modern and responsive e-commerce web application built using **React.js**, focused on showcasing and selling coastal products of India.
 
-![KokanBazar Screenshot](KokanBazar.PNG) <!-- optional: update this with an actual screenshot -->
+![KokanBazar Screenshot](kokanBazar.PNG) <!-- optional: update this with an actual screenshot -->
 
 ---
 
